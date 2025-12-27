@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: spring-cloud-gateway
-
-spring:
   cloud:
     gateway:
       routes: #当访问http://localhost:8080/baidu,直接转发到https://www.baidu.com/
