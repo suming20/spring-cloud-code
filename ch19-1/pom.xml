@@ -134,7 +134,7 @@
 				<artifactId>protobuf-maven-plugin</artifactId>
 				<version>0.5.1</version>
 				<configuration>
-					<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+					<!--<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>-->
 					<!--默认值-->
 					<!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
 					<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>
