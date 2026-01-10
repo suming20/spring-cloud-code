@@ -13,12 +13,12 @@ import cn.springcloud.book.crm.sales.dto.clientobject.CustomerCO;
 public interface CustomerServiceI {
 
     @GetMapping("/add")
-    public Response addCustomer(CustomerAddCmd customerAddCmd);
+    Response addCustomer(CustomerAddCmd customerAddCmd);
 
     @GetMapping("/checkConflict")
-    public MultiResponse<CustomerCO> checkConflict(CustomerCheckConflictCmd customerCheckConflictCmd);
+    MultiResponse<CustomerCO> checkConflict(CustomerCheckConflictCmd customerCheckConflictCmd);
 
     @GetMapping("/list")
-    public MultiResponse<CustomerCO> findByCriteria(CustomerFindByCriteriaQry CustomerFindByCriteriaQry);
+    MultiResponse<CustomerCO> findByCriteria(CustomerFindByCriteriaQry CustomerFindByCriteriaQry);
 
 }

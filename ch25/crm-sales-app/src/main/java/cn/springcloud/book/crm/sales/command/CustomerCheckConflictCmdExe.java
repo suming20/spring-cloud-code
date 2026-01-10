@@ -10,18 +10,17 @@ import cn.springcloud.book.crm.sales.dto.clientobject.CustomerCO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Command
-public class CustomerCheckConflictCmdExe implements CommandExecutorI<MultiResponse<CustomerCO>, CustomerCheckConflictCmd>{
+public class CustomerCheckConflictCmdExe implements CommandExecutorI<MultiResponse<CustomerCO>, CustomerCheckConflictCmd> {
 
     @Autowired
     private ExtensionExecutor extensionExecutor;
-    
+
     @Override
     public MultiResponse<CustomerCO> execute(CustomerCheckConflictCmd cmd) {
         System.out.println("Shared logic");
-        String searchCondition = extensionExecutor.execute(
-                                   CustomerCheckConflictSearchConditionExtPt.class,
-                                   extension -> extension.getSearchCondition("condition"));
-        System.out.println("Shared logic with "+ searchCondition);
+        String searchCondition = extensionExecutor.execute(CustomerCheckConflictSearchConditionExtPt.class,
+                extension -> extension.getSearchCondition("condition"));
+        System.out.println("Shared logic with " + searchCondition);
         return MultiResponse.of(null, 0);
     }
 

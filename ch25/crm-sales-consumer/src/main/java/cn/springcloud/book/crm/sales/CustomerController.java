@@ -28,17 +28,17 @@ public class CustomerController {
     private CustomerServiceI customerService;
 
     @RequestMapping("/add")
-    public Response add(){
+    public Response add() {
         logger.info("init add");
-        //1.Prepare
-        HaloContext.set("DD","10001");
+        // 1.Prepare
+        HaloContext.set("DD", "10001");
         CustomerAddCmd cmd = new CustomerAddCmd();
         CustomerCO customerCO = new CustomerCO();
         customerCO.setCustomerName("jkys");
         customerCO.setCustomerType(CustomerType.VIP);
         cmd.setCustomer(customerCO);
 
-        //2.Execute
+        // 2.Execute
         Response response = customerService.addCustomer(cmd);
 
         return response;
@@ -46,14 +46,14 @@ public class CustomerController {
     }
 
     @RequestMapping("/list")
-    public MultiResponse<CustomerCO> list(){
-        MultiResponse<CustomerCO>  list = null;
+    public MultiResponse<CustomerCO> list() {
+        MultiResponse<CustomerCO> list = null;
         try {
             logger.info("init list");
             CustomerFindByCriteriaQry qry = new CustomerFindByCriteriaQry();
             list = customerService.findByCriteria(qry);
             list.getTotal();
-            logger.info(JSONObject.toJSONString(list.getData(),true));
+            logger.info(JSONObject.toJSONString(list.getData(), true));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,16 +62,15 @@ public class CustomerController {
     }
 
     @RequestMapping("/checkConflict")
-    public MultiResponse<CustomerCO> checkConflict(){
+    public MultiResponse<CustomerCO> checkConflict() {
         logger.info("init checkConflict");
-        HaloContext.set("","10001");
-        CustomerCheckConflictCmd customerCheckConflictCmd=new CustomerCheckConflictCmd();
+        HaloContext.set("", "10001");
+        CustomerCheckConflictCmd customerCheckConflictCmd = new CustomerCheckConflictCmd();
         customerCheckConflictCmd.setOperater("xujin");
-        MultiResponse<CustomerCO>  list = customerService.checkConflict(customerCheckConflictCmd);
+        MultiResponse<CustomerCO> list = customerService.checkConflict(customerCheckConflictCmd);
         return list;
 
     }
-
 
 
 }

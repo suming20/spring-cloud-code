@@ -4,6 +4,9 @@ import cn.springcloud.book.crm.sales.command.extensionpoint.CustomerCheckConflic
 import cn.springcloud.book.crm.sales.common.BizCode;
 import org.xujin.halo.annotation.extension.Extension;
 
+/**
+ * 默认扩展点
+ */
 @Extension
 public class CustomerSearchConditionExt implements CustomerCheckConflictSearchConditionExtPt {
 

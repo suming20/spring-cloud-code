@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CustomerRepository implements RepositoryI{
+public class CustomerRepository implements RepositoryI {
 
     @Autowired
     private CustomerTunnelI customerDBTunnel;
@@ -23,8 +23,8 @@ public class CustomerRepository implements RepositoryI{
     public void persist(CustomerE customer) {
         customerDBTunnel.create(customerConvertor.entityToData(customer));
     }
-    
-    public List<CustomerE> findByCriteria(String... params){
+
+    public List<CustomerE> findByCriteria(String... params) {
         List<CustomerDO> customerDos = customerDBTunnel.findByCriteria(params);
         List<CustomerE> customerDs = new ArrayList<>();
         for (CustomerDO customerDo : customerDos) {
